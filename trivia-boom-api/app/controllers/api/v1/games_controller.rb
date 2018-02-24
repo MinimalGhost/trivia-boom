@@ -1,15 +1,15 @@
 class Api::V1::GamesController < ApplicationController
 
   def index
-    @games = Game.all
-    render json: @games
+    games = Game.all
+    render json: games
   end
 
   def create
-    @game = Game.new(game_params)
-    if @game.save
+    game = Game.new(game_params)
+    if game.save
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
-        GameSerializer.new(@game)
+        GameSerializer.new(game)
       ).serializable_hash
       ActionCable.server.broadcast 'games_channel', serialized_data
       head :ok
@@ -19,7 +19,7 @@ class Api::V1::GamesController < ApplicationController
   def show
     game_players = Player.where(game_id: params[:id])
 
-    render json: pig_pen_pigs
+    render json: game_players
   end
 
   def update
@@ -29,6 +29,6 @@ class Api::V1::GamesController < ApplicationController
   private
 
   def game_params
-    params.require.(:game).permit(:id, :title, :slots, :length, :category, :difficulty, :status)
+    params.require(:game).permit(:id, :title, :slots, :length, :category, :difficulty, :status)
   end
 end

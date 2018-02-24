@@ -3,5 +3,5 @@ export const API_WS_ROOT = 'ws://localhost:3000/api/v1/cable';
 
 export const HEADERS = {
   'Content-Type': 'application/json',
-  Accept: 'application/json',
+  Accepts: 'application/json',
 };

@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20180221213044) do
     t.integer "length"
     t.string "category"
     t.string "difficulty"
-    t.string "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

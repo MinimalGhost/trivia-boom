@@ -1,4 +1,5 @@
 class GamesChannel < ApplicationCable::Channel
+  # Channel to see all available games
   def subscribed
     stream_from "games_channel"
   end

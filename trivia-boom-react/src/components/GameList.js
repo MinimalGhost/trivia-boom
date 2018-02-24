@@ -1,4 +1,5 @@
 import React from 'react';
+import GameItem from './GameItem'
 
 class GameList extends React.Component {
   state = {
@@ -8,8 +9,7 @@ class GameList extends React.Component {
   render() {
     return (
       <div>
-        <p>GameList</p>
-        // get all open games and populate data in game components
+        <GameItem />
       </div>
     )
   }

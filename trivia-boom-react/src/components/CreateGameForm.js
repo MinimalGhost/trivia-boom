@@ -1,4 +1,5 @@
 import React from 'react'
+import adapter from '../adapter'
 
 class CreateGameForm extends React.Component {
   state = {
@@ -6,17 +7,29 @@ class CreateGameForm extends React.Component {
     category: '',
     difficulty: '',
     slots: undefined,
-    length: '',
-    type: 'multiple'
+    length: ''
+  }
+  
+  handleSubmission = (e) => {
+    e.preventDefault()
+    adapter.game.createGameAndContents(this.state)
+  }
+  
+  onInputChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
   
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmission}>
         <label>Title: </label>
-        <input type="text" name="title" /> <br />
+        <input type="text" name="title" onChange={this.onInputChange}/> <br />
+        <label>Players: </label>
+        <input type="number" name="slots" onChange={this.onInputChange}/> <br />
         <label>Category: </label>
-        <select>
+        <select name="category" onChange={this.onInputChange} >
           <option value='9'>General Knowledge</option>
           <option value='10'>Entertainment: Books</option>
           <option value='11'>Entertainment: Film</option>
@@ -43,13 +56,13 @@ class CreateGameForm extends React.Component {
           <option value='32'>Entertainment: Cartoon/Animation</option>
         </select> <br />
         <label>Difficulty: </label>
-        <select>
+        <select name="difficulty" onChange={this.onInputChange} >
           <option value='easy'>Easy</option>
           <option value='medium'>Medium</option>
           <option value='hard'>Hard</option>
         </select> <br />
         <label>Length</label>
-        <select>
+        <select name="length" onChange={this.onInputChange} >
           <option value="10">Short</option>
           <option value="20">Medium</option>
           <option value="30">Long</option>

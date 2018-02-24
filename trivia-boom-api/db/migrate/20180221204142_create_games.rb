@@ -6,7 +6,7 @@ class CreateGames < ActiveRecord::Migration[5.1]
       t.integer :length
       t.string :category
       t.string :difficulty
-      t.string :status
+      t.string :status, :default => 'pending'
 
       t.timestamps
     end
