@@ -6,11 +6,11 @@ const createGameAndContents = (body) => {
     headers: HEADERS,
     body: JSON.stringify({game: body})
   })
-  fetch(`${API_ROOT}/contents`, {
-    method: 'POST',
-    headers: HEADERS,
-    body: JSON.stringify({content: body})
-  })
+  // fetch(`${API_ROOT}/contents`, {
+  //   method: 'POST',
+  //   headers: HEADERS,
+  //   body: JSON.stringify({content: body})
+  // })
 }
 
 const getGames = () => {
