@@ -4,10 +4,10 @@ class CreatePlayerForm extends React.Component {
   state = {
     name: ''
   }
-  
+
   render() {
     return (
-      <form>
+      <form className="dark-matter">
         <label>Name: </label>
         <input type="text" name="name" />
         <input type="submit" />

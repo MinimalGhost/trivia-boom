@@ -6,22 +6,23 @@ const createGameAndContents = (body) => {
     headers: HEADERS,
     body: JSON.stringify({game: body})
   })
-  // fetch(`${API_ROOT}/contents`, {
-  //   method: 'POST',
-  //   headers: HEADERS,
-  //   body: JSON.stringify({content: body})
-  // })
+  fetch(`${API_ROOT}/contents`, {
+    method: 'POST',
+    headers: HEADERS,
+    body: JSON.stringify({content: body})
+  })
 }
 
 const getGames = () => {
   fetch(`${API_ROOT}/games`, {
-    method: 'GET',
-  })
+    headers: HEADERS,
+  }).then(res => res.json())
 }
 
 
 export default {
   game: {
-    createGameAndContents
+    createGameAndContents,
+    getGames
   }
 }

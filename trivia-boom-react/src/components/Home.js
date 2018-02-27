@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const Home = () => {  
+const Home = () => {
   return (
-    <div>
-      <button><Link to='/creategame'>Create Game</Link></button>
-      <button><Link to='/gamelist'>Join Game</Link></button>
+    <div className="dark-matter home">
+      <Link to='/creategame'>Create Game</Link>
+      <Link to='/gamelist'>Join Game</Link>
     </div>
   )
 }
